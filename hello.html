@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,33 @@
     <title>Hello World</title>
 </head>
 
+<!-- FIREBASE CREDENTIALS -->
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
 <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD8LGqYFmESQymI2syAXUv4G-G5p4Lrgl4",
-            authDomain: "fir-authscreen-374bb.firebaseapp.com",
-            databaseURL: "https://fir-authscreen-374bb.firebaseio.com",
-            projectId: "fir-authscreen-374bb",
-            storageBucket: "fir-authscreen-374bb.appspot.com",
-            messagingSenderId: "793795940774"
-        };
-        firebase.initializeApp(config);
-    </script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD8LGqYFmESQymI2syAXUv4G-G5p4Lrgl4",
+        authDomain: "fir-authscreen-374bb.firebaseapp.com",
+        databaseURL: "https://fir-authscreen-374bb.firebaseio.com",
+        projectId: "fir-authscreen-374bb",
+        storageBucket: "fir-authscreen-374bb.appspot.com",
+        messagingSenderId: "793795940774"
+    };
+    firebase.initializeApp(config);
+</script>
+
 <body>
     <script>
-    firebase.auth().onAuthStateChanged(function(user){
-        if(user){
-            document.body.innerHTML = '<h1> Congrats '+ user.displayName + ' you are sign in';
-        } else {
-            console.log('No user signed in');
-        }
-    });
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                document.body.innerHTML = '<h1> Congrats ' + user.displayName + ' you are sign in';
+            } else {
+                console.log('No user signed in');
+            }
+        });
     </script>
 
     <h1>Congrats you're done!</h1>
 </body>
+
 </html>
