@@ -23,7 +23,10 @@
     firebase.initializeApp(config);
 </script>
 
-<script>
+<!-- FIREBASE UI -->
+<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+<script type="text/javascript">
     // FirebaseUI config.
     var uiConfig = {
         signInSuccessUrl: 'hello.html', //<url-to-redirect-to-on-success>
@@ -35,18 +38,13 @@
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
         ],
         // Terms of service url.
-        //tosUrl: '<your-tos-url>'
+        tosUrl: '<your-tos-url>'
     };
-
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
 </script>
-
-<!-- FIREBASE UI -->
-<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
 
 <body>
     <h1 align="center" style="color: white"></h1>
