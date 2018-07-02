@@ -1,18 +1,10 @@
-// FirebaseUI config.
-var uiConfig = {
-    signInSuccessUrl: 'hello.html', //<url-to-redirect-to-on-success>
-    signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    ],
-    // Terms of service url.
-    //tosUrl: '<your-tos-url>'
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyD8LGqYFmESQymI2syAXUv4G-G5p4Lrgl4",
+    authDomain: "fir-authscreen-374bb.firebaseapp.com",
+    databaseURL: "https://fir-authscreen-374bb.firebaseio.com",
+    projectId: "fir-authscreen-374bb",
+    storageBucket: "fir-authscreen-374bb.appspot.com",
+    messagingSenderId: "793795940774"
 };
-
-// Initialize the FirebaseUI Widget using Firebase.
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// The start method will wait until the DOM is loaded.
-ui.start('#firebaseui-auth-container', uiConfig);
+firebase.initializeApp(config);
