@@ -17,17 +17,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-    <!--FONTAWESOME IMPORTS-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
-
     <!--CUSTOM IMPORTS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="assets/javascript/functions.js"> </script>
 </head>
 
-
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<!-- FIREBASE CREDENTIALS -->
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
 <script>
     // Initialize Firebase
     var config = {
@@ -42,17 +38,16 @@
 </script>
 
 <body>
-    <!--CHECK THE USER IS LOG IN, IF NOT REDIRECT-->
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                //Show the page
+                document.body.innerHTML = '<h1> Congrats ' + user.displayName + ' you are sign in';
             } else {
-                //Redirect to other page
-                $(location).attr("href", "templates/403.html");
+                console.log('No user signed in');
             }
         });
     </script>
+
     <!--NAVBAR-->
     <nav class="navbar navbar-dark bg-dark mb-5">
         <div class="row text-white">
