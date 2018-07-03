@@ -41,7 +41,6 @@
     <script>
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                document.body.innerHTML = '<h1> Congrats ' + user.displayName + ' you are sign in';
             } else {
                 console.log('No user signed in');
             }
