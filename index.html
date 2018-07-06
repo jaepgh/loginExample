@@ -11,16 +11,16 @@
 <!-- FIREBASE CREDENTIALS -->
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCzlDqCG0H9P4les0AZdidvJZPqRg0boew",
-    authDomain: "golfassist-cc729.firebaseapp.com",
-    databaseURL: "https://golfassist-cc729.firebaseio.com",
-    projectId: "golfassist-cc729",
-    storageBucket: "golfassist-cc729.appspot.com",
-    messagingSenderId: "352272717648"
-  };
-  firebase.initializeApp(config);
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCzlDqCG0H9P4les0AZdidvJZPqRg0boew",
+        authDomain: "golfassist-cc729.firebaseapp.com",
+        databaseURL: "https://golfassist-cc729.firebaseio.com",
+        projectId: "golfassist-cc729",
+        storageBucket: "golfassist-cc729.appspot.com",
+        messagingSenderId: "352272717648"
+    };
+    firebase.initializeApp(config);
 </script>
 
 <!-- FIREBASE UI -->
@@ -49,6 +49,8 @@
 <body>
     <h1 align="center" style="color: white"></h1>
     <div id="firebaseui-auth-container"></div>
+    <div id="openweathermap-widget-15"></div>
+    <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = []; window.myWidgetParam.push({ id: 15, cityid: '4164138', appid: '0722e157fffaac88706730b4c7ab6eb6', units: 'metric', containerid: 'openweathermap-widget-15', }); (function () { var script = document.createElement('script'); script.async = true; script.charset = "utf-8"; script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s); })();</script>
 </body>
 
 </html>
