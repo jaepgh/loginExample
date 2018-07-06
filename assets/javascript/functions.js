@@ -11,6 +11,7 @@ var golfCourse = '';
 $(document).ready(function () {
 
     renderWeather('4164138');
+    renderWeather('4164601');
 
     $('#select-btn').on('click', function () {
         //Validate user entry
