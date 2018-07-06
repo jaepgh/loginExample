@@ -10,6 +10,8 @@ var golfCourse = '';
 
 $(document).ready(function () {
 
+    renderWeather('4164138');
+
     $('#select-btn').on('click', function () {
         //Validate user entry
         if (true) {
@@ -80,10 +82,21 @@ $(document).ready(function () {
 });
 
 //---------------------------------------------------------------------------------------//
-//-------------------------------       WEATHER API       -------------------------------//
+//-------------------------------       WEATHER API       -------------------------------//'4164138'
 //---------------------------------------------------------------------------------------//
-
-
+function renderWeather(city_id) {
+    console.log('Hello');
+    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+    window.myWidgetParam.push({ id: 12, cityid: city_id, appid: '0722e157fffaac88706730b4c7ab6eb6', units: 'metric', containerid: 'weather', });
+    (function () {
+        var script = document.createElement('script');
+        script.async = true;
+        script.charset = "utf-8";
+        script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    })();
+}
 
 
 //---------------------------------------------------------------------------------------//
@@ -110,7 +123,7 @@ $(document).ready(function () {
 //-------------------------------       SCORE CARD       --------------------------------//
 //---------------------------------------------------------------------------------------//
 
-function createCustomTee(pgolfCourse){
+function createCustomTee(pgolfCourse) {
     golfCourse = pgolfCourse;
 
     //Delete everything inside score-card
