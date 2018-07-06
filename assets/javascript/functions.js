@@ -143,8 +143,8 @@ databaseRef.ref("/users").child(localStorage.getItem('user_id')).child('games').
 //---------------------------------------------------------------------------------------//
 
 function renderWeather(city_id) {
-    if (document.getElementById('weather').childNodes[0]) {
-        document.getElementById('weather').remove(document.getElementById('weather').childNodes[0]);
+    if ($('#weather').children()) {
+        $('#weather').children().remove();
     }
 
     window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
