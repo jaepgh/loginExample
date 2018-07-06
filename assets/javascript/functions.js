@@ -183,7 +183,7 @@ function initMap() {
             name: 'Briar Bay',
             address: '9399 SW 134th Street',
             city: 'Miami',
-            city_id:'4164138',
+            city_id: '4164138',
             zip: '33176',
             phone: '(305)-235-6667',
             desc: 'Briar Bay Golf Course is a par-31 Executive Golf Course, built on thirty acres, eight blocks west of US 1, north of SW 136th Street. Designed by Bruce Devlin and Robert Von Hagge, and built in 1974 by Real Estate Developer Alec Courtelis, it opened for play in January of 1975. The Parks Department acquired Briar Bay in 1979 and has operated it since that time. The course ambles west, north, east, west, south and finally east again as it winds its way back to the clubhouse.'
@@ -194,7 +194,7 @@ function initMap() {
             name: 'Country Club East',
             address: '6801 NW 186th Street',
             city: 'Hialeah',
-            city_id:'4158476',
+            city_id: '4158476',
             zip: '33015',
             phone: '(305)-829-8456',
             desc: 'The Country Club of Miami East Course, a 6,353-yard par-70 layout with a slope of 124, requires shot placement and strategy from both the novice and serious golfer.'
@@ -205,7 +205,7 @@ function initMap() {
             name: 'Country Club West',
             address: '6801 NW 186th Street',
             city: 'Hialeah',
-            city_id:'4158476',
+            city_id: '4158476',
             zip: '33015',
             phone: '(305)-829-8456',
             desc: 'The Country Club of Miami West Course, a 7,017-yard par-72 course with a slope of 132, hosted the 1991 Senior PGA Tour National Qualifying School. The bunkers, lush fairways, and rolling greens offer a challenging adventure. The course was the original site for the former National Airlines Open.'
@@ -218,7 +218,7 @@ function initMap() {
             address: '6700 Crandon Boulevard',
             city: 'Key Biscayne',
             zip: '33149',
-            city_id:'4160789',
+            city_id: '4160789',
             phone: '(305)-361-9129',
             desc: 'Crandon Golf at Key Biscayne is a championship 18-hole golf course located on the island paradise of Key Biscayne, just 10 minutes from downtown Miami. It is the perfect alternative to civilization where you can spend a day enveloped by the tropics.'
         }, {
@@ -228,7 +228,7 @@ function initMap() {
             name: 'Greynolds Park',
             address: '17530 West Dixie Highway',
             city: 'North Miami Beach',
-            city_id:'4166233',
+            city_id: '4166233',
             zip: '33160',
             phone: '(305)-949-1741',
             desc: "Greynolds Golf Course provides a 3,100-yard challenging layout. This par-36 course, designed by Mark Mahannah in 1964, is one of the county's most popular nine-hole designs for all levels of play."
@@ -240,7 +240,7 @@ function initMap() {
             address: '9300 SW 152nd Street',
             city: 'Miami',
             zip: '33157',
-            city_id:'4164138',
+            city_id: '4164138',
             phone: '(305)-238-2922',
             desc: "Palmetto Golf Course is a Par-70 Championship Miami course, built on 121 acres, running parallel to US-1, south of SW 152nd Street. The 18-hole course, designed by Dick Wilson and built in 1959 by developers Porter, Russell and Wagor, was purchased by Miami-Dade County in 1967."
         }
@@ -255,7 +255,9 @@ function initMap() {
             icon: { url: icons[feature.type].icon, scaledSize: new google.maps.Size(30, 30) },
             map: map,
             content: feature.desc,
-            name: 'briar_bay',
+            name: feature.name,
+            title: feature.name,
+            city_id: feature.city_id,
             animation: google.maps.Animation.DROP
         });
 
