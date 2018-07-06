@@ -58,19 +58,6 @@
                 localStorage.setItem('user_name', 'John Doe');
                 console.log('No user signed in');
             }
-
-            //check if the user exist on the database
-            var databaseRef = firebase.database();
-            databaseRef.ref("/users").child(localStorage.getItem('user_id')).once('value', function (snapshot) {
-                if (snapshot.exists()) {
-                    //Do nothing
-                } else {
-                    console.log('/users/' + localStorage.getItem('user_id'));
-                    databaseRef.ref('/users').child(localStorage.getItem('user_id')).set({
-                        games: ['']
-                    });
-                }
-            });
         });
     </script>
 
@@ -106,7 +93,8 @@
                 <!--WEATHER-->
                 <div class="mb-3" id="weather">
                 </div>
-                <div class="bg-danger mb-3" id="fly-over">
+                <!--FLY-OVER (FUTURE)-->
+                <div class="mb-3" id="fly-over">
 
                 </div>
                 <button class="btn btn-large btn-primary float-right" id="select-btn">SELECT</button>

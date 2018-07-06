@@ -311,12 +311,6 @@ function customInfo(feature) {
     return infoHTML;
 }
 
-
-//---------------------------------------------------------------------------------------//
-//-------------------------------       YOUTUBE API       -------------------------------//
-//---------------------------------------------------------------------------------------//
-
-
 //---------------------------------------------------------------------------------------//
 //-------------------------------     FIREBASE STORAGE    -------------------------------//
 //---------------------------------------------------------------------------------------//
@@ -334,13 +328,30 @@ function saveCurrentGame() {
 }
 
 function saveToDB(flag) {
-    databaseRef.ref('/users/' + localStorage.getItem('user_id') + '/games').push().set({
-        date: (new Date()).toLocaleDateString("en-US"),
-        location: currentGolfCourse.name,
-        tee: currentTee,
-        score: getFinalScore(),
-        completed: flag
+    //check if the user exist on the database
+    var databaseRef = firebase.database();
+    databaseRef.ref("/users").child(localStorage.getItem('user_id')).once('value', function (snapshot) {
+        if (snapshot.exists()) {
+            databaseRef.ref('/users/' + localStorage.getItem('user_id') + '/games').push().set({
+                date: (new Date()).toLocaleDateString("en-US"),
+                location: currentGolfCourse.name,
+                tee: currentTee,
+                score: getFinalScore(),
+                completed: flag
+            });
+        } else {
+            databaseRef.ref('/users').child(localStorage.getItem('user_id')).set({
+                games: [{
+                    date: (new Date()).toLocaleDateString("en-US"),
+                    location: currentGolfCourse.name,
+                    tee: currentTee,
+                    score: getFinalScore(),
+                    completed: flag
+                }]
+            });
+        }
     });
+
 }
 
 function validateGameInput() {
@@ -533,7 +544,7 @@ function getCoreTable(start, tee, final) {
     //Add last column
     trHolesTag.append($('<th class ="text-center">' + ((start === 0) && (!final) ? 'FRONT' : 'TOTAL') + '/YARDS/PAR</th>'));
     tryardsTag.append($('<th class ="text-center">' + getTotalYards(tee, start, final) + '</th>'));
-    trInputTag.append($('<th class ="text-center" id = "' + ((start === 0) && (!final) ? 'first9' : 'second9') + '">0</th>'));
+    trInputTag.append($('<th class ="text-center" id = "' + ((start === 0) ? 'first9' : 'second9') + '">0</th>'));
     trParTag.append($('<th class ="text-center">' + getTotalPar(start, final) + '</th>'));
 
     //Create table
