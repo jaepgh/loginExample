@@ -146,7 +146,7 @@ function renderWeather(city_id) {
     if ($('#weather').children()) {
         $('#weather').children().remove();
     }
-
+    console.log(city_id);
     window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
     window.myWidgetParam.push({ id: 12, cityid: city_id, appid: '0722e157fffaac88706730b4c7ab6eb6', units: 'metric', containerid: 'weather', });
     (function () {
