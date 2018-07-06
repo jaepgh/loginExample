@@ -143,6 +143,10 @@ databaseRef.ref("/users").child(localStorage.getItem('user_id')).child('games').
 //---------------------------------------------------------------------------------------//
 
 function renderWeather(city_id) {
+    if (document.getElementById('weather').childNodes[0]) {
+        document.getElementById('weather').remove(document.getElementById('weather').childNodes[0]);
+    }
+
     window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
     window.myWidgetParam.push({ id: 12, cityid: city_id, appid: '0722e157fffaac88706730b4c7ab6eb6', units: 'metric', containerid: 'weather', });
     (function () {
